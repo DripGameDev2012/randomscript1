@@ -4,7 +4,7 @@ namespace ConsoleApp1
 {
 	class Mailbox
 	{
-		public static void Main(string[] args)
+		public static void Main()
 		{
 			Console.WriteLine("Tip: Try saying \"Do I have mail?\" ");
 			bool mail;
@@ -13,17 +13,43 @@ namespace ConsoleApp1
 			{
 				Random random = new Random();
 				int integer = random.Next(0, 2);
-				Console.WriteLine(integer);
 				if (integer == 1)
 				{
 					mail = true;
 					if (mail == true)
 					{
 						Mailbox1("is");
-						Console.WriteLine("I'd recommend to now say \"How much mail is there?\" ");
+						Console.WriteLine("Tip: Try saying \"How much mail is there?\" ");
 						var what1 = Console.ReadLine();
-						if
+						if (what1 == "How much mail is there?")
+                        {
+							Random randomNumberGenerator = new Random();
+							int integer1 = random.Next(1, 1000);
+							
+							Mailbox2(integer1);
 
+							Console.WriteLine("Tip: Try saying \"Read me an email.\"");
+							var bruh = Console.ReadLine();
+							if (bruh == "Read me an email.")
+                            {
+								
+								for(int i = 0; i < 51; i++)
+                                {
+									Console.WriteLine("ERROR 101. NO MAIL MADE.");
+                                }
+								
+                            }
+                            else
+                            {
+								Console.WriteLine("Sorry, but that wasn't typed correctly.");
+								Main();
+                            }
+						}
+                        else
+                        {
+							Console.WriteLine("Sorry, but that wasn't typed correctly.");
+							Main();
+                        }
 					}
 				}
 				else
@@ -39,6 +65,7 @@ namespace ConsoleApp1
             else
             {
 				Console.WriteLine("Sorry, but that wasn't typed correctly.");
+				Main();
             }
 		}
 		public static void Mailbox1(string ismail)
@@ -46,9 +73,10 @@ namespace ConsoleApp1
 			Console.WriteLine("There {0} mail", ismail);
 
 		}
-		public void Mailbox2(int howmuch)
+		public static void Mailbox2(int howmuch)
         {
-			Console.WriteLine("There is {0} pieces of mail", howmuch);
+			Console.WriteLine("You have {0} mail", howmuch);
         }
+		
 	}
 }
